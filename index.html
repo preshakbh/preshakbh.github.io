@@ -6,309 +6,155 @@
   <title>Preshak Bhattarai - Portfolio</title>
 
   <style>
+    /* ===== BASIC COLORS ===== */
     :root{
       --blue: #004182;
       --bg: #f3f5f8;
       --card: #ffffff;
       --text: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --shadow: 0 1px 6px rgba(0,0,0,0.08);
-      --radius: 12px;
     }
-
-    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.45;
+      background-color: var(--bg); /* background property */
+      color: var(--text); /* color property */
     }
 
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* Header */
+    /* ===== HEADER ===== */
     .header {
       background-color: var(--blue);
       color: white;
-      padding: 28px 20px;
+      padding: 20px;
+      overflow: auto; /* helps with float */
     }
 
-    .header-inner{
-      max-width: 1050px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .title-block h1{
-      margin: 0;
-      font-size: 30px;
-      letter-spacing: 0.2px;
-    }
-
-    .headline{
-      margin: 6px 0 0 0;
-      color: #dbeafe;
-      font-size: 15px;
-    }
-
-    .profile-link{
-      display: inline-flex;
-      border-radius: 12px;
-      border: 3px solid rgba(255,255,255,0.9);
-      overflow: hidden;
-      background: rgba(255,255,255,0.12);
-      flex: 0 0 auto;
+    /* FLOAT PROPERTY USED HERE */
+    .profile-link {
+      float: right; /* REQUIRED: moves image to right */
+      margin-left: 15px;
     }
 
     .profile-pic{
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      display: block;
+      width: 120px;
+      height: 120px;
+      border-radius: 10px;
     }
 
-    /* Layout */
-    .content-wrapper {
-      max-width: 1050px;
-      margin: 18px auto;
-      padding: 0 16px 24px 16px;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 18px;
+    h1 {
+      margin: 0;
+    }
+
+    /* ===== PSEUDO-ELEMENT ===== */
+    h2::after {
+      content: ""; /* REQUIRED pseudo-element */
+      display: block;
+      width: 40px;
+      height: 3px;
+      background-color: var(--blue);
+      margin-top: 5px;
+    }
+
+    /* ===== LINKS ===== */
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    /* HOVER PSEUDO-CLASS */
+    a:hover {
+      color: red; /* REQUIRED hover color change */
+    }
+
+    /* ===== CONTENT ===== */
+    .container {
+      padding: 20px;
     }
 
     .card {
       background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      padding: 16px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
     }
 
-    .sidebar h3,
-    .section h2 {
-      margin: 0 0 10px 0;
-      color: var(--blue);
-    }
-
-    .sidebar h3{
-      font-size: 16px;
-      margin-top: 14px;
-    }
-    .sidebar h3:first-child{ margin-top: 0; }
-
-    .muted { color: var(--muted); }
-
-    ul { margin: 8px 0 0 18px; padding: 0; }
-    li { margin: 6px 0; }
-
-    .section { margin-bottom: 18px; }
-    .section h2 { font-size: 18px; }
-
-    .job h3{
-      margin: 12px 0 4px 0;
-      font-size: 16px;
-      color: #0f172a;
-    }
-    .job p{
-      margin: 0 0 8px 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* Table */
+    /* ===== TABLE ===== */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
-      overflow: hidden;
-      border-radius: 10px;
     }
-    th, td {
-      border: 1px solid #d1d5db;
-      padding: 10px;
-      text-align: left;
-      font-size: 14px;
-    }
-    th { background: #f8fafc; }
-    tr:nth-child(even) { background-color: #e8f1ff; }
-    tr:nth-child(odd) { background-color: #ffffff; }
 
-    /* Mobile */
-    @media (max-width: 860px){
-      .header-inner{ align-items: flex-start; }
-      .content-wrapper{
-        grid-template-columns: 1fr;
-      }
-      .profile-pic{
-        width: 110px;
-        height: 110px;
-      }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    /* NTH-CHILD SELECTOR */
+    tr:nth-child(even) {
+      background-color: #e8f1ff; /* REQUIRED */
+    }
+
+    tr:nth-child(odd) {
+      background-color: #ffffff; /* REQUIRED */
     }
   </style>
 </head>
 
 <body>
-  <!-- TOP HEADER -->
+
+  <!-- HEADER -->
   <div class="header">
-    <div class="header-inner">
-      <div class="title-block">
-        <h1>Preshak Bhattarai</h1>
-        <p class="headline">Cybersecurity-Focused Computer Science Student</p>
-      </div>
+    <a class="profile-link" href="#">
+      <img class="profile-pic" src="https://i.ibb.co/1G38ckT0/IMG-20260302-000632-547.webp" />
+    </a>
 
-      <!-- Clickable image (your provided snippet, cleaned) -->
-      <a class="profile-link" href="https://ibb.co/8gJ6kH9m" target="_blank" rel="noopener noreferrer">
-        <img
-          class="profile-pic"
-          src="https://i.ibb.co/1G38ckT0/IMG-20260302-000632-547.webp"
-          alt="IMG-20260302-000632-547"
-        />
-      </a>
-    </div>
+    <h1>Preshak Bhattarai</h1>
+    <p>Cybersecurity Student</p>
   </div>
 
-  <div class="content-wrapper">
-    <!-- LEFT SIDEBAR -->
-    <div class="sidebar card">
-      <h3>Contact</h3>
+  <!-- MAIN CONTENT -->
+  <div class="container">
 
-      <p>
-        <strong>Email:</strong><br />
-        <a href="mailto:preshak07@gmail.com">preshak07@gmail.com</a>
-      </p>
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:preshak07@gmail.com">preshak07@gmail.com</a></p>
+      <p>Location: Green Bay, WI</p>
+    </div>
 
-      <p><strong>Phone:</strong> (920) 489-5575</p>
-      <p><strong>Location:</strong> Green Bay, WI</p>
-
-      <p>
-        <strong>LinkedIn:</strong><br />
-        <a href="https://www.linkedin.com/in/preshak-bhattarai/" target="_blank" rel="noopener noreferrer">
-          linkedin.com/in/preshak-bhattarai
-        </a>
-      </p>
-
-      <h3>Skills</h3>
+    <div class="card">
+      <h2>Skills</h2>
       <ul>
-        <li>Python, Java, SQL, Bash</li>
-        <li>Threat Detection &amp; SOC</li>
-        <li>API Integration, LLMs</li>
-        <li>Linux Administration</li>
-        <li>AWS &amp; Google Cloud</li>
-      </ul>
-
-      <h3>Clubs</h3>
-      <ul>
-        <li>Google Developer Group (GDG)</li>
-        <li>Lions Club (Vice President)</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>SQL</li>
+        <li>Linux</li>
       </ul>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-      <!-- ABOUT -->
-      <div class="section card">
-        <h2>About Me</h2>
-        <p>
-          I am a cybersecurity-focused Computer Science student specializing in
-          AI-based biometric security, backend automation, and secure data systems.
-          I enjoy building security tools, exploring adversarial ML, and developing
-          scalable software using Python and cloud technologies.
-        </p>
-      </div>
-
-      <!-- EXPERIENCE -->
-      <div class="section card">
-        <h2>Experience</h2>
-
-        <div class="job">
-          <h3>Undergraduate Research Assistant – UW-Green Bay</h3>
-          <p><em>Feb 2026 – Present</em></p>
-          <ul>
-            <li>Developing ML-based biometric authentication systems.</li>
-            <li>Training CNNs for liveness detection using Python &amp; OpenCV.</li>
-            <li>Researching adversarial attacks &amp; defensive AI strategies.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3>Database Management Intern – Spring Fall USA</h3>
-          <p><em>Aug 2024 – Dec 2025</em></p>
-          <ul>
-            <li>Built and maintained secure confidential student-record systems.</li>
-            <li>Implemented RBAC for permission control.</li>
-            <li>Automated data validation, reducing manual effort by 40%.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3>IT Intern – BKVM</h3>
-          <p><em>Mar 2024 – May 2024</em></p>
-          <ul>
-            <li>Maintained SQL databases and web infrastructure.</li>
-            <li>Applied IT security practices for academic systems.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- PROJECTS -->
-      <div class="section card">
-        <h2>Projects</h2>
-
-        <div class="job">
-          <h3>MockDeu – AI Visa Interview Simulator</h3>
-          <p class="muted">Python, LLMs, Speech-to-Text</p>
-          <ul>
-            <li>Built an AI-powered interview simulator using Ollama.</li>
-            <li>Added real-time voice input &amp; automated feedback.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3>FBPROX – Facebook Automation Tool</h3>
-          <p class="muted">Python, GraphQL</p>
-          <ul>
-            <li>Developed a GraphQL automation tool for workflow tasks.</li>
-            <li>Designed a modular architecture for secure scaling.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- TIMELINE -->
-      <div class="section card">
-        <h2>Experience Timeline</h2>
-
-        <table>
-          <tr>
-            <th>Position</th>
-            <th>Organization</th>
-            <th>Year</th>
-          </tr>
-          <tr>
-            <td>Research Assistant</td>
-            <td>UW-Green Bay</td>
-            <td>2026-Present</td>
-          </tr>
-          <tr>
-            <td>DB Management Intern</td>
-            <td>Spring Fall USA</td>
-            <td>2024-2025</td>
-          </tr>
-          <tr>
-            <td>IT Intern</td>
-            <td>BKVM</td>
-            <td>2024</td>
-          </tr>
-        </table>
-      </div>
+    <div class="card">
+      <h2>Experience</h2>
+      <p>Research Assistant - UW Green Bay</p>
     </div>
+
+    <div class="card">
+      <h2>Experience Table</h2>
+      <table>
+        <tr>
+          <th>Role</th>
+          <th>Year</th>
+        </tr>
+        <tr>
+          <td>Research Assistant</td>
+          <td>2026</td>
+        </tr>
+        <tr>
+          <td>Intern</td>
+          <td>2024</td>
+        </tr>
+      </table>
+    </div>
+
   </div>
+
 </body>
 </html>
